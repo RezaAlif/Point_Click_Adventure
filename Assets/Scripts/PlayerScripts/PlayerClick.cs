@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class PlayerClick : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject TaggedObject;
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if(Physics.Raycast(ray, out hit))
+            if(TaggedObject != null)
             {
-                transform.position = hit.point;
+                transform.position = TaggedObject.transform.position;
+                PlayerState.Instance.TargetTag = TaggedObject;
+                PlayerState.Instance.ChangeState(CharacterState.Move);
+
+            }
+            else
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit))
+                {
+                    transform.position = hit.point;
+                    PlayerState.Instance.ChangeState(CharacterState.Move);
+                }
             }
         }
     }
