@@ -1,0 +1,4 @@
+Ali must step on the stones whose numbers go to 50
+Help him reach the boulder marked with 50...
+Ali must not fall into the river while jumping from one stone to the other
+Click the correct numbers from 1 to 50

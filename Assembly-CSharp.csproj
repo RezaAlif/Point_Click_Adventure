@@ -75,6 +75,28 @@
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\CharacterConfig\CharacterAnimationController.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerGather.cs" />
+    <Compile Include="Assets\Scripts\NPCScripts\TextWriter.cs" />
+    <Compile Include="Assets\Scripts\NPCScripts\Dialouge.cs" />
+    <Compile Include="Assets\Scripts\NPCScripts\NPCConfiguration.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\StreamingAssets\TextFile\BeginChapter4.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\BeginChapter3.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\BeginChapter8.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\EndChapter9.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\BeginChapter1.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\EndChapter5.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\BeginChapter9.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\EndChapter1.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\BeginChapter6.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\BeginChapter5.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\BeginChapter7.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\EndChapter8.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\EndChapter4.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\EndChapter6.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\EndChapter3.txt" />
+    <None Include="Assets\StreamingAssets\TextFile\EndChapter7.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -74,5 +74,10 @@ public class PlayerState : MonoBehaviour
         {
             ChangeState(CharacterState.Gather);
         }
+        if (TargetTag.GetComponent<NPCConfiguration>() != null)
+        {
+            ChangeState(CharacterState.Talk);
+            TargetTag.GetComponent<NPCConfiguration>().SpawnDialogue();
+        }
     }
 }

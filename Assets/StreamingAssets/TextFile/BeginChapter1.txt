@@ -1,0 +1,5 @@
+Now it's guessing time
+Guess the character from the silhouette
+Enter the name of character in the box
+Click the "Answer" button to submit your answer
+You have 3 chances to guess the correct character
