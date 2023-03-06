@@ -6,11 +6,15 @@ public class PlayerState : MonoBehaviour
 {
     [Header("Class Player")] // Class Player Component
     public static PlayerState Instance;
+    public CharacterAnimationController animationController;
     PlayerMovement playerMovement;
-    PlayerAttack playerAttack;
     PlayerGather playerGather;
+    PlayerAttack playerAttack;
 
     [HideInInspector]public GameObject TargetTag;
+
+    public AnimationClip idleAnimation;
+    public AnimationClip talkAnimation;
 
     private void Awake()
     {
@@ -32,38 +36,26 @@ public class PlayerState : MonoBehaviour
         playerAttack = GetComponent<PlayerAttack>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ChangeState(CharacterState state)
     {
         switch (state)
         {
             case CharacterState.Idle:
-                playerAttack.enabled = false;
-                playerMovement.enabled = false;
-                playerGather.enabled = false;
+                animationController.PlayAnimation(idleAnimation);
                 break;
-
             case CharacterState.Move:
-                playerAttack.enabled = false;
                 playerMovement.enabled = true;
-                playerGather.enabled = false;
-
                 playerMovement.SelectTarget();
                 break;
             case CharacterState.Attack:
                 playerAttack.enabled = true;
-                playerGather.enabled = false;
-                playerMovement.enabled = false;
+                playerAttack.SetAttack();
                 break;
             case CharacterState.Gather:
                 playerGather.enabled = true;
-                playerMovement.enabled = false;
-                playerAttack.enabled = true;
+                break;
+            case CharacterState.Talk:
+                animationController.PlayAnimation(talkAnimation);
                 break;
         }
     }

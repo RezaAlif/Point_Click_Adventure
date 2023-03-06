@@ -56,19 +56,23 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemyIdle.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemyPatrol.cs" />
+    <Compile Include="Assets\Scripts\ItemScripts\ResourceScript.cs" />
     <Compile Include="Assets\Scripts\Enumeration\CharacterState.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerState.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemyChase.cs" />
+    <Compile Include="Assets\Scripts\AssetContainer.cs" />
+    <Compile Include="Assets\Scripts\CharacterConfig\HitBox.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemyState.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\Enumeration\ItemEnum.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerClick.cs" />
+    <Compile Include="Assets\Scripts\CharacterConfig\CharacterAlbility.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerAttack.cs" />
+    <Compile Include="Assets\Scripts\CharacterConfig\CharacterAnimationController.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerGather.cs" />
-    <Compile Include="Assets\Scripts\ItemScripts\ResourceScript.cs" />
-    <Compile Include="Assets\Scripts\AssetContainer.cs" />
-    <Compile Include="Assets\Scripts\EnemyScripts\EnemyState.cs" />
-    <Compile Include="Assets\Scripts\EnemyScripts\EnemyPatrol.cs" />
-    <Compile Include="Assets\Scripts\EnemyScripts\EnemyChase.cs" />
-    <Compile Include="Assets\Scripts\EnemyScripts\EnemyAttack.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform PointPosition;
     public Transform CameraPosition;
     public Vector3 CameraOffset;
+    public AnimationClip RunAnimation;
 
     // Start is called before the first frame update
     void Awake()
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         Agent.enabled = true;
+        PlayerState.Instance.animationController.PlayAnimation(RunAnimation);
     }
 
     public void SelectTarget()
@@ -41,10 +43,12 @@ public class PlayerMovement : MonoBehaviour
             if(PlayerState.Instance.TargetTag != null)
             {
                 PlayerState.Instance.OnTarget();
+                this.enabled = false;
             }
             else
             {
                 PlayerState.Instance.ChangeState(CharacterState.Idle);
+                this.enabled = false;
             }
         }
     }
@@ -54,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject == PlayerState.Instance.TargetTag)
         {
             PlayerState.Instance.OnTarget();
+            this.enabled = false;
         }
     }
 }
