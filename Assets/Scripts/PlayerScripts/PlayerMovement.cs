@@ -30,35 +30,40 @@ public class PlayerMovement : MonoBehaviour
 
     public void SelectTarget()
     {
-        Agent.SetDestination(PointPosition.position);
+        if(PlayerState.Instance.TargetTag != null)
+        {
+            Agent.SetDestination(PlayerState.Instance.TargetTag.transform.position);
+        }
+        else
+        {
+            Agent.SetDestination(PointPosition.position);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         CameraPosition.position = transform.position + CameraOffset;
+        SelectTarget();
 
-        if (Vector3.Distance(transform.position, PointPosition.position) < 0.1f)
+        if (PlayerState.Instance.TargetTag != null)
         {
-            if(PlayerState.Instance.TargetTag != null)
+            if (Vector3.Distance(transform.position, PointPosition.position) < 2f)
             {
-                PlayerState.Instance.OnTarget();
-                this.enabled = false;
+                if (PlayerState.Instance.TargetTag != null)
+                {
+                    PlayerState.Instance.OnTarget();
+                    this.enabled = false;
+                }
             }
-            else
+        }
+        else
+        {
+            if (Vector3.Distance(transform.position, PointPosition.position) < 0.1f)
             {
                 PlayerState.Instance.ChangeState(CharacterState.Idle);
                 this.enabled = false;
             }
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject == PlayerState.Instance.TargetTag)
-        {
-            PlayerState.Instance.OnTarget();
-            this.enabled = false;
         }
     }
 }

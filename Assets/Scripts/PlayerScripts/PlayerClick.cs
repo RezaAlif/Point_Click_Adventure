@@ -15,7 +15,6 @@ public class PlayerClick : MonoBehaviour
             {
                 if(TaggedObject != PlayerState.Instance.TargetTag)
                 {
-                    transform.position = TaggedObject.transform.position;
                     PlayerState.Instance.TargetTag = TaggedObject;
                     PlayerState.Instance.ChangeState(CharacterState.Move);
                 }
@@ -31,6 +30,11 @@ public class PlayerClick : MonoBehaviour
                     PlayerState.Instance.ChangeState(CharacterState.Move);
                 }
             }
+        }
+
+        if(PlayerState.Instance.TargetTag != null)
+        {
+            transform.position = PlayerState.Instance.TargetTag.transform.position;
         }
     }
 }

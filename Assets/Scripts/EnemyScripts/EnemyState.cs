@@ -8,19 +8,22 @@ public class EnemyState : MonoBehaviour
     EnemyChase enemyChase;
     EnemyAttack enemyAttack;
     EnemyIdle enemyIdle;
+    EnemyDead enemyDead;
+    PlayerClick playerClick;
 
     public CharacterAnimationController characterAnimationController;
-    public Transform playerObject;
+    [HideInInspector]public Transform playerObject;
     public float minDistanceWithPlayer = 0.1f;
     public float maxDistanceWithPlayer = 10f;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerObject = FindObjectOfType<PlayerState>().transform;
+        playerObject = GameObject.FindGameObjectWithTag("Player").transform;
         enemyChase = GetComponent<EnemyChase>();
         enemyAttack = GetComponent<EnemyAttack>();
-        enemyIdle = GetComponent<EnemyIdle>();
+        enemyDead = GetComponent<EnemyDead>();
+        playerClick = FindObjectOfType<PlayerClick>();
         PatrolCheck();
     }
 
@@ -32,6 +35,7 @@ public class EnemyState : MonoBehaviour
         }
         else
         {
+            enemyIdle = GetComponent<EnemyIdle>();
             ChangeState(CharacterState.Idle);
         }
     }
@@ -54,6 +58,10 @@ public class EnemyState : MonoBehaviour
             case CharacterState.Attack:
                 enemyAttack.enabled = true;
                 break;
+            case CharacterState.Dead:
+                enemyDead.enabled = true;
+                Destroy(this);
+                break;
         }
     }
 
@@ -74,5 +82,15 @@ public class EnemyState : MonoBehaviour
         }
 
         enemyPatrol.SelectTarget(NearObject);
+    }
+
+    private void OnMouseEnter()
+    {
+        playerClick.TaggedObject = this.gameObject;
+    }
+
+    private void OnMouseExit()
+    {
+        playerClick.TaggedObject = null;
     }
 }

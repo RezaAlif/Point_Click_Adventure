@@ -59,10 +59,12 @@
     <Compile Include="Assets\Scripts\EnemyScripts\EnemyIdle.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemyPatrol.cs" />
     <Compile Include="Assets\Scripts\ItemScripts\ResourceScript.cs" />
+    <Compile Include="Assets\Scripts\Enumeration\CharacterRole.cs" />
     <Compile Include="Assets\Scripts\Enumeration\CharacterState.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerState.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemyChase.cs" />
     <Compile Include="Assets\Scripts\AssetContainer.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemyDead.cs" />
     <Compile Include="Assets\Scripts\CharacterConfig\HitBox.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemyState.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemyAttack.cs" />

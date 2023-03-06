@@ -6,5 +6,6 @@ public enum CharacterState
     Gather,
     Build,
     Patrol,
-    Talk
+    Talk,
+    Dead
 }

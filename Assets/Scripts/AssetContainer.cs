@@ -5,7 +5,7 @@ using UnityEngine;
 public class AssetContainer : MonoBehaviour
 {
     public static AssetContainer Instance;
-    public int Wood, Stone;
+    public int Wood, Stone, Gold;
 
     private void Awake()
     {
@@ -24,6 +24,7 @@ public class AssetContainer : MonoBehaviour
     {
         Wood = PlayerPrefs.GetInt(ItemEnum.Wood.ToString());
         Stone = PlayerPrefs.GetInt(ItemEnum.Stone.ToString());
+        Gold = PlayerPrefs.GetInt(ItemEnum.Gold.ToString());
     }
 
     public void SetValue(ItemEnum item, int value)
@@ -37,6 +38,10 @@ public class AssetContainer : MonoBehaviour
             case ItemEnum.Stone: 
                 Stone += value;
                 PlayerPrefs.SetInt(item.ToString(), Stone);
+                break;
+            case ItemEnum.Gold:
+                Gold += value;
+                PlayerPrefs.SetInt(item.ToString(), Gold);
                 break;
         }
     }

@@ -11,10 +11,11 @@ public class PlayerState : MonoBehaviour
     PlayerGather playerGather;
     PlayerAttack playerAttack;
 
-    [HideInInspector]public GameObject TargetTag;
+    public GameObject TargetTag;
 
     public AnimationClip idleAnimation;
     public AnimationClip talkAnimation;
+    public AnimationClip deadAnimation;
 
     private void Awake()
     {
@@ -45,7 +46,6 @@ public class PlayerState : MonoBehaviour
                 break;
             case CharacterState.Move:
                 playerMovement.enabled = true;
-                playerMovement.SelectTarget();
                 break;
             case CharacterState.Attack:
                 playerAttack.enabled = true;
@@ -56,6 +56,10 @@ public class PlayerState : MonoBehaviour
                 break;
             case CharacterState.Talk:
                 animationController.PlayAnimation(talkAnimation);
+                break;
+            case CharacterState.Dead:
+                animationController.PlayAnimation(deadAnimation);
+                this.enabled = false;
                 break;
         }
     }

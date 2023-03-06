@@ -8,12 +8,11 @@ public class EnemyPatrol : MonoBehaviour
     EnemyState EnemyState;
     NavMeshAgent Agent;
     public Vector3[] listPath;
-    public int UnitPath;
-    public float distanceDetector = 10f;
+    int UnitPath;
+    public float SpeedMove = 2f;
     public AnimationClip PatrolAnimation;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         EnemyState = GetComponent<EnemyState>();
         Agent = GetComponent<NavMeshAgent>();
@@ -21,8 +20,8 @@ public class EnemyPatrol : MonoBehaviour
 
     private void OnEnable()
     {
-        EnemyState.characterAnimationController.PlayAnimation(PatrolAnimation);
         Agent.enabled = true;
+        Agent.speed = SpeedMove;
     }
 
     public void SelectTarget(Vector3 Target)
@@ -45,6 +44,8 @@ public class EnemyPatrol : MonoBehaviour
 
     void Patroling()
     {
+        EnemyState.characterAnimationController.PlayAnimation(PatrolAnimation);
+
         if (Vector3.Distance(transform.position, listPath[UnitPath]) < 0.1f)
         {
             if (UnitPath >= listPath.Length - 1)

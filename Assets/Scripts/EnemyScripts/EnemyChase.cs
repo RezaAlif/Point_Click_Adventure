@@ -10,12 +10,13 @@ public class EnemyChase : MonoBehaviour
     NavMeshAgent Agent;
 
     Vector3 startPoint;
+    public float SpeedMove = 4f;
 
     public AnimationClip RunAnimation;
     public AnimationClip AttackAnimation;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         EnemyState = GetComponent<EnemyState>();
         Agent = GetComponent<NavMeshAgent>();
@@ -26,12 +27,14 @@ public class EnemyChase : MonoBehaviour
     {
         EnemyState.characterAnimationController.PlayAnimation(RunAnimation);
         Agent.enabled = true;
-        Agent.SetDestination(EnemyState.playerObject.position);
+        Agent.speed = SpeedMove;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Agent.SetDestination(EnemyState.playerObject.position);
+
         if (Vector3.Distance(transform.position, EnemyState.playerObject.position) < EnemyState.minDistanceWithPlayer)
         {
             Agent.enabled = false;
@@ -42,18 +45,6 @@ public class EnemyChase : MonoBehaviour
         if (Vector3.Distance(transform.position, EnemyState.playerObject.position) > EnemyState.maxDistanceWithPlayer)
         {
             PlayerAway();
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject == EnemyState.playerObject)
-        {
-            Agent.enabled = false;
-            EnemyState.minDistanceWithPlayer = Vector3.Distance(transform.position, EnemyState.playerObject.position);
-            EnemyState.characterAnimationController.PlayAnimation(AttackAnimation);
-            EnemyState.ChangeState(CharacterState.Attack);
-            this.enabled = false;
         }
     }
 

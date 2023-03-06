@@ -21,4 +21,9 @@ public class CharacterAnimationController : MonoBehaviour
             currentClip = animationClip;
         }
     }
+
+    public void TriggerDestroy()
+    {
+        Destroy(transform.root.gameObject);
+    }
 }
