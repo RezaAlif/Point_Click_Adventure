@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TextWriter : MonoBehaviour
 {
-    Text uiText;
+    TMPro.TextMeshProUGUI uiText;
     string textToWrite;
     int characterIndex;
     float timePerCharacter;
@@ -13,7 +13,7 @@ public class TextWriter : MonoBehaviour
     public bool textFill;
     public string currentText;
 
-    public void AddText(Text uiText, string textToWrite, float timePerCharacter)
+    public void AddText(TMPro.TextMeshProUGUI uiText, string textToWrite, float timePerCharacter)
     {
         this.uiText = uiText;
         this.textToWrite = textToWrite;

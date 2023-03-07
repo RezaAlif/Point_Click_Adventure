@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
+using TMPro;
 
 public class Dialouge : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class Dialouge : MonoBehaviour
             GameObject objText = Instantiate(textObj, textArea);
             objText.transform.SetParent(textArea);
             unitTalk[i] = objText;
-            objText.GetComponent<Text>().text = fileLines[i];
+            objText.GetComponent<TMPro.TextMeshProUGUI>().text = fileLines[i];
             textUnit++;
 
             if (i == 0)
@@ -51,8 +52,8 @@ public class Dialouge : MonoBehaviour
                 objText.SetActive(true);
             }
         }
-        m_Writer.AddText(unitTalk[Unit].GetComponent<Text>(), unitTalk[Unit].GetComponent<Text>().text, 0.1f);
-        unitTalk[Unit].GetComponent<Text>().text = "";
+        m_Writer.AddText(unitTalk[Unit].GetComponent<TMPro.TextMeshProUGUI>(), unitTalk[Unit].GetComponent<TMPro.TextMeshProUGUI>().text, 0.1f);
+        unitTalk[Unit].GetComponent<TextMeshProUGUI>().text = "";
         m_Writer.textFill = false;
     }
 
@@ -79,14 +80,14 @@ public class Dialouge : MonoBehaviour
                     Unit++;
                     unitTalk[Unit].SetActive(true);
                     unitTalk[Unit - 1].SetActive(false);
-                    m_Writer.AddText(unitTalk[Unit].GetComponent<Text>(), unitTalk[Unit].GetComponent<Text>().text, 0.1f);
-                    unitTalk[Unit].GetComponent<Text>().text = "";
+                    m_Writer.AddText(unitTalk[Unit].GetComponent<TMPro.TextMeshProUGUI>(), unitTalk[Unit].GetComponent<TMPro.TextMeshProUGUI>().text, 0.1f);
+                    unitTalk[Unit].GetComponent<TextMeshProUGUI>().text = "";
                     m_Writer.textFill = false;
                 }
                 else
                 {
                     m_Writer.textFill = true;
-                    unitTalk[Unit].GetComponent<Text>().text = m_Writer.currentText;
+                    unitTalk[Unit].GetComponent<TextMeshProUGUI>().text = m_Writer.currentText;
                 }
             }
             else
@@ -94,6 +95,7 @@ public class Dialouge : MonoBehaviour
                 if (m_Writer.textFill)
                 {
                     Destroy(this.gameObject);
+                    npcConfig.FinishDialogue();
                     uiContinue.SetActive(false);
                     if(gameStart)
                     {
@@ -115,7 +117,7 @@ public class Dialouge : MonoBehaviour
                 else
                 {
                     m_Writer.textFill = true;
-                    unitTalk[Unit].GetComponent<Text>().text = m_Writer.currentText;
+                    unitTalk[Unit].GetComponent<TextMeshProUGUI>().text = m_Writer.currentText;
                 }
             }
         }
