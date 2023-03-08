@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 957017029898606227}
   - component: {fileID: 957017029898606228}
   - component: {fileID: 957017029898606235}
+  - component: {fileID: 481983575103466645}
   m_Layer: 0
   m_Name: EnemyFootman
   m_TagString: Enemy
@@ -186,6 +187,19 @@ MonoBehaviour:
   rewardLists:
   - Item: 0
     Value: 2
+--- !u!114 &481983575103466645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957017029898606229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49203a450cf69b843a8f77a746c26a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IdleAnimation: {fileID: 7400000, guid: 269a4022d09a5a644bd0117939ee73c3, type: 3}
 --- !u!1001 &957017030812051212
 PrefabInstance:
   m_ObjectHideFlags: 0

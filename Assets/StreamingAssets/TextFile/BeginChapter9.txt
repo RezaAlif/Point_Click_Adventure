@@ -1,2 +1,0 @@
-Help Ali find the bag containing the pyramid diamond by removing the boulders
-You have to click and drag the stone to remove it from the bag

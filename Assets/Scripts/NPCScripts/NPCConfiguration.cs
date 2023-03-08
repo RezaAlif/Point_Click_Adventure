@@ -6,10 +6,10 @@ public class NPCConfiguration : MonoBehaviour
 {
     PlayerClick playerClick;
     public CharacterAnimationController animationController;
-    public string TextFile;
+    public Object TextFile;
+    public Object TextFileMission;
     public AnimationClip idleAnimation, talkAnimation;
     public GameObject DialogueObject;
-    public Transform CanvasLocation;
 
     private void Start()
     {
@@ -20,15 +20,26 @@ public class NPCConfiguration : MonoBehaviour
     {
         animationController.PlayAnimation(talkAnimation);
         GameObject dialogueObject = Instantiate(DialogueObject);
-        dialogueObject.transform.SetParent(CanvasLocation, false);
-        dialogueObject.GetComponent<Dialouge>().textFile = TextFile;
         dialogueObject.GetComponent<Dialouge>().npcConfig = this;
+
+        if(TextFileMission != null)
+        {
+            dialogueObject.GetComponent<Dialouge>().textFile = TextFileMission.name;
+            dialogueObject.GetComponent<Dialouge>().IdentityText.text = gameObject.name;
+            dialogueObject.GetComponent<Dialouge>().isMission = true;
+        }
+        else
+        {
+            dialogueObject.GetComponent<Dialouge>().textFile = TextFile.name;
+            dialogueObject.GetComponent<Dialouge>().IdentityText.text = gameObject.name;
+        }
     }
 
     public void FinishDialogue()
     {
         animationController.PlayAnimation(idleAnimation);
         PlayerState.Instance.TargetTag = null;
+        TextFileMission = null;
     }
 
     private void OnMouseEnter()

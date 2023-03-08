@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyPatrol : MonoBehaviour
 {
+    GameManager GameManager;
     EnemyState EnemyState;
     NavMeshAgent Agent;
     public Vector3[] listPath;
@@ -14,6 +15,7 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Awake()
     {
+        GameManager = FindObjectOfType<GameManager>();
         EnemyState = GetComponent<EnemyState>();
         Agent = GetComponent<NavMeshAgent>();
     }
@@ -38,8 +40,11 @@ public class EnemyPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Patroling();
-        Chasing();
+        if (GameManager.gameStart)
+        {
+            Patroling();
+            Chasing();
+        }
     }
 
     void Patroling()

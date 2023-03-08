@@ -4,27 +4,29 @@ using UnityEngine;
 
 public class EnemyIdle : MonoBehaviour
 {
+    GameManager GameManager;
     EnemyState EnemyState;
     public AnimationClip IdleAnimation;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameManager = FindObjectOfType<GameManager>();
         EnemyState = GetComponent<EnemyState>();
-    }
-
-    private void OnEnable()
-    {
-        EnemyState.characterAnimationController.PlayAnimation(IdleAnimation);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, EnemyState.playerObject.position) < EnemyState.maxDistanceWithPlayer)
+        if (GameManager.gameStart)
         {
-            EnemyState.ChangeState(CharacterState.Move);
-            this.enabled = false;
+            EnemyState.characterAnimationController.PlayAnimation(IdleAnimation);
+
+            if (Vector3.Distance(transform.position, EnemyState.playerObject.position) < EnemyState.maxDistanceWithPlayer)
+            {
+                EnemyState.ChangeState(CharacterState.Move);
+                this.enabled = false;
+            }
         }
     }
 }

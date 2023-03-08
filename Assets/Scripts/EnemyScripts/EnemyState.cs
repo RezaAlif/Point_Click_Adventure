@@ -40,6 +40,18 @@ public class EnemyState : MonoBehaviour
         }
     }
 
+    void ClearClass()
+    {
+        if (enemyPatrol != null)
+        {
+            Destroy(enemyPatrol);
+        }
+        Destroy(enemyChase);
+        Destroy(enemyAttack);
+        Destroy(enemyIdle);
+        Destroy(this);
+    }
+
     public void ChangeState(CharacterState state)
     {
         switch (state)
@@ -60,7 +72,7 @@ public class EnemyState : MonoBehaviour
                 break;
             case CharacterState.Dead:
                 enemyDead.enabled = true;
-                Destroy(this);
+                ClearClass();
                 break;
         }
     }

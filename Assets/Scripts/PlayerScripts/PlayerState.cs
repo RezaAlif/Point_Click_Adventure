@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
+    MissionManager MissionManager;
+
     [Header("Class Player")] // Class Player Component
     public static PlayerState Instance;
     public CharacterAnimationController animationController;
@@ -32,6 +34,7 @@ public class PlayerState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MissionManager = FindObjectOfType<MissionManager>();
         playerGather = GetComponent<PlayerGather>();
         playerMovement = GetComponent<PlayerMovement>();
         playerAttack = GetComponent<PlayerAttack>();
@@ -59,9 +62,17 @@ public class PlayerState : MonoBehaviour
                 break;
             case CharacterState.Dead:
                 animationController.PlayAnimation(deadAnimation);
-                this.enabled = false;
+                ClearClass();
                 break;
         }
+    }
+
+    void ClearClass()
+    {
+        Destroy(playerMovement);
+        Destroy(playerGather);
+        Destroy(playerGather);
+        Destroy(this);
     }
 
     public void OnTarget()
@@ -78,6 +89,10 @@ public class PlayerState : MonoBehaviour
         {
             ChangeState(CharacterState.Talk);
             TargetTag.GetComponent<NPCConfiguration>().SpawnDialogue();
+        }
+        if (TargetTag.GetComponent<NavigationScript>() != null)
+        {
+            MissionManager.CheckMission();
         }
     }
 }

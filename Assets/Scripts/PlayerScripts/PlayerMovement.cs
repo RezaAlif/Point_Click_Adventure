@@ -7,8 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     NavMeshAgent Agent;
     public Transform PointPosition;
-    public Transform CameraPosition;
-    public Vector3 CameraOffset;
     public AnimationClip RunAnimation;
 
     // Start is called before the first frame update
@@ -43,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CameraPosition.position = transform.position + CameraOffset;
         SelectTarget();
 
         if (PlayerState.Instance.TargetTag != null)

@@ -9,6 +9,8 @@ using TMPro;
 
 public class Dialouge : MonoBehaviour
 {
+    GameManager GameManager;
+    MissionManager MissionManager;
     GameObject[] unitTalk;
     public NPCConfiguration npcConfig;
     public GameObject textObj;
@@ -19,22 +21,27 @@ public class Dialouge : MonoBehaviour
     int Unit;
     int textUnit;
     TextWriter m_Writer;
-    public string nextScene;
+    public TextMeshProUGUI IdentityText;
     public string textFile;
     public bool gameStart;
+    public bool isMission;
     List<string> fileLines;
 
     private void Awake()
     {
-        m_Writer = GetComponent<TextWriter>();
-        string readFromFilePath = Path.Combine(Application.streamingAssetsPath, "TextFile", textFile + ".txt");
-        StartCoroutine(GetAsset(readFromFilePath));
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameManager = FindObjectOfType<GameManager>();
+        MissionManager = FindObjectOfType<MissionManager>();
+        GameManager.gameStart = false;
+
+        m_Writer = GetComponent<TextWriter>();
+        string readFromFilePath = Path.Combine(Application.streamingAssetsPath, "TextFile", textFile + ".txt");
+        StartCoroutine(GetAsset(readFromFilePath));
     }
 
     void ShowText()
@@ -95,11 +102,15 @@ public class Dialouge : MonoBehaviour
                 if (m_Writer.textFill)
                 {
                     Destroy(this.gameObject);
-                    npcConfig.FinishDialogue();
                     uiContinue.SetActive(false);
+
+                    if(npcConfig != null)
+                    {
+                        npcConfig.FinishDialogue();
+                    }
                     if(gameStart)
                     {
-                        //GameManager.instance.gameStart = true;
+                        GameManager.gameStart = true;
                     }
                     if(objActivated != null)
                     {
@@ -109,9 +120,9 @@ public class Dialouge : MonoBehaviour
                     {
                         objDeactivated.SetActive(false);
                     }
-                    if(nextScene != "")
+                    if(isMission)
                     {
-                        SceneManager.LoadScene(nextScene);
+                        MissionManager.CheckMission();
                     }
                 }
                 else

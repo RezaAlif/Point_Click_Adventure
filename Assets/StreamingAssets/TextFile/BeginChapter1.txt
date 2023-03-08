@@ -1,5 +1,4 @@
-Now it's guessing time
-Guess the character from the silhouette
-Enter the name of character in the box
-Click the "Answer" button to submit your answer
-You have 3 chances to guess the correct character
+Oh no, the villager was attacked by monster
+I should save them
+Hint : Click to make Dog Knight move
+Hint : Click to monsters to make Dog Knight attack monster

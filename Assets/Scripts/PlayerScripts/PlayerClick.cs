@@ -4,37 +4,49 @@ using UnityEngine;
 
 public class PlayerClick : MonoBehaviour
 {
+    GameManager GameManager;
     public GameObject TaggedObject;
+
+    private void Start()
+    {
+        GameManager = FindObjectOfType<GameManager>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (GameManager.gameStart)
         {
-            if(TaggedObject != null)
+            if (Input.GetMouseButtonDown(0))
             {
-                if(TaggedObject != PlayerState.Instance.TargetTag)
+                if (TaggedObject != null)
                 {
-                    PlayerState.Instance.TargetTag = TaggedObject;
-                    PlayerState.Instance.ChangeState(CharacterState.Move);
-                }
+                    if (TaggedObject != PlayerState.Instance.TargetTag)
+                    {
+                        PlayerState.Instance.TargetTag = TaggedObject;
+                        PlayerState.Instance.ChangeState(CharacterState.Move);
+                    }
 
+                }
+                else
+                {
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        if(hit.collider.tag != "Ignore")
+                        {
+                            transform.position = hit.point;
+                            PlayerState.Instance.ChangeState(CharacterState.Move);
+                        }
+                    }
+                }
             }
-            else
+
+            if (PlayerState.Instance.TargetTag != null)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit))
-                {
-                    transform.position = hit.point;
-                    PlayerState.Instance.ChangeState(CharacterState.Move);
-                }
+                transform.position = PlayerState.Instance.TargetTag.transform.position;
             }
-        }
-
-        if(PlayerState.Instance.TargetTag != null)
-        {
-            transform.position = PlayerState.Instance.TargetTag.transform.position;
         }
     }
 }

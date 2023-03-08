@@ -20,9 +20,12 @@ public class HitBox : MonoBehaviour
 
             if(enemyAlbility.Health <= 0)
             {
-                other.GetComponent<EnemyState>().ChangeState(CharacterState.Dead);
-                PlayerState.Instance.TargetTag = null;
-                playerAttack.FindNearestEnemyPath();
+                if(other.GetComponent<EnemyState>() != null)
+                {
+                    other.GetComponent<EnemyState>().ChangeState(CharacterState.Dead);
+                    PlayerState.Instance.TargetTag = null;
+                    playerAttack.FindNearestEnemyPath();
+                }
             }
         }
 

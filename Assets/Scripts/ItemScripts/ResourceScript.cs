@@ -11,6 +11,7 @@ public class RewardList
 public class ResourceScript : MonoBehaviour
 {
     PlayerClick playerClick;
+    public bool isMission;
     public float TimeGather;
     public RewardList[] rewardLists;
 

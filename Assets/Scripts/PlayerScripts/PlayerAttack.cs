@@ -8,6 +8,8 @@ public class PlayerAttack : MonoBehaviour
 
     public void SetAttack()
     {
+        Vector3 targetPos = new Vector3(PlayerState.Instance.TargetTag.transform.position.x, transform.position.y, PlayerState.Instance.TargetTag.transform.position.z);
+        transform.LookAt(targetPos);
         PlayerState.Instance.animationController.PlayAnimation(attackClip);
     }
 
