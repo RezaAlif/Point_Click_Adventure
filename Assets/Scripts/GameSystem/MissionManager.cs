@@ -9,7 +9,7 @@ public class Mission
 {
     public int TargetValue;
     public string MissionDescription;
-    public GameObject ObjectActivated;
+    public GameObject[] ObjectActivated;
 }
 
 public class MissionManager : MonoBehaviour
@@ -29,7 +29,7 @@ public class MissionManager : MonoBehaviour
 
     public void CheckMission()
     {
-        if (MissionValue != MissionList[MissionUnit].TargetValue - 1)
+        if (MissionValue < MissionList[MissionUnit].TargetValue - 1)
         {
             MissionValue++;
         }
@@ -53,9 +53,12 @@ public class MissionManager : MonoBehaviour
             MissionUnit++;
             MissionValue = 0;
 
-            if(MissionList[MissionUnit].ObjectActivated != null)
+            if(MissionList[MissionUnit].ObjectActivated.Length > 0)
             {
-                MissionList[MissionUnit].ObjectActivated.SetActive(true);
+                for(int i = 0;i < MissionList[MissionUnit].ObjectActivated.Length;i++)
+                {
+                    MissionList[MissionUnit].ObjectActivated[i].SetActive(true);
+                }
             }
         }
     }

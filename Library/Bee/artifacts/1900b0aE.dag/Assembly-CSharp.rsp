@@ -383,6 +383,7 @@
 "Assets/Scripts/PlayerScripts/PlayerClick.cs"
 "Assets/Scripts/PlayerScripts/PlayerGather.cs"
 "Assets/Scripts/PlayerScripts/PlayerMovement.cs"
+"Assets/Scripts/PlayerScripts/PlayerRadar.cs"
 "Assets/Scripts/PlayerScripts/PlayerState.cs"
 "Assets/Scripts/ScriptableObjects/MissionObject.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"

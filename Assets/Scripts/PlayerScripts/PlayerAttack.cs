@@ -15,7 +15,11 @@ public class PlayerAttack : MonoBehaviour
 
     public void FindNearestEnemyPath()
     {
-        if(FindObjectOfType<EnemyState>() != null)
+        PlayerState.Instance.ChangeState(CharacterState.Idle);
+        this.enabled = false;
+
+        /*
+        if (FindObjectOfType<EnemyState>() != null)
         {
             var Enemies = FindObjectsOfType<EnemyState>();
             var nearestDist = float.MaxValue;
@@ -23,14 +27,14 @@ public class PlayerAttack : MonoBehaviour
 
             foreach (var PointList in Enemies)
             {
-                if (Vector3.Distance(transform.position, PointList.transform.position) < nearestDist)
+                if (Vector3.Distance(transform.position, PointList.transform.position) < nearestDist && PointList.gameObject != PlayerState.Instance.TargetTag)
                 {
                     nearestDist = Vector3.Distance(transform.position, PointList.transform.position);
                     NearObject = PointList.transform;
                 }
             }
 
-            if (nearestDist > 1)
+            if (nearestDist > 2)
             {
                 PlayerState.Instance.ChangeState(CharacterState.Idle);
                 this.enabled = false;
@@ -44,8 +48,7 @@ public class PlayerAttack : MonoBehaviour
         }
         else
         {
-            PlayerState.Instance.ChangeState(CharacterState.Idle);
-            this.enabled = false;
         }
+        */
     }
 }

@@ -5580,7 +5580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1064917106
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9705,6 +9705,11 @@ PrefabInstance:
       objectReference: {fileID: 102900000, guid: f887b1997cc2509408a94e63508cbde7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a463970388132c14e8e0a8c7a637667c, type: 3}
+--- !u!1 &1811189041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8513441807820847659, guid: a463970388132c14e8e0a8c7a637667c, type: 3}
+  m_PrefabInstance: {fileID: 1811189040}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1812376141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10363,13 +10368,16 @@ MonoBehaviour:
   MissionList:
   - TargetValue: 1
     MissionDescription: Talk To Villager
-    ObjectActivated: {fileID: 0}
+    ObjectActivated:
+    - {fileID: 1811189041}
   - TargetValue: 1
     MissionDescription: Open The Chest
-    ObjectActivated: {fileID: 1514696650}
+    ObjectActivated:
+    - {fileID: 1514696650}
   - TargetValue: 1
     MissionDescription: Go To Dungeon
-    ObjectActivated: {fileID: 1064917105}
+    ObjectActivated:
+    - {fileID: 1064917105}
   MissionUnit: 0
   MissionValue: 0
   TransitionObject: {fileID: 3105153943008046950, guid: 38196e54a6b551a42b501e4288faac9f, type: 3}

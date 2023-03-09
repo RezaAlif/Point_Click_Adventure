@@ -963,6 +963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTurtle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 957017029898606235, guid: fd5a46b07a471df4c9d30bf6a26c4985, type: 3}
+      propertyPath: IsMission
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 957017029898606236, guid: fd5a46b07a471df4c9d30bf6a26c4985, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1009,6 +1013,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd5a46b07a471df4c9d30bf6a26c4985, type: 3}
+--- !u!1 &154236902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 957017029898606229, guid: fd5a46b07a471df4c9d30bf6a26c4985, type: 3}
+  m_PrefabInstance: {fileID: 154236901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &183207105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2518,6 +2527,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTurtle
       objectReference: {fileID: 0}
+    - target: {fileID: 957017029898606235, guid: fd5a46b07a471df4c9d30bf6a26c4985, type: 3}
+      propertyPath: IsMission
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 957017029898606236, guid: fd5a46b07a471df4c9d30bf6a26c4985, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2564,6 +2577,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd5a46b07a471df4c9d30bf6a26c4985, type: 3}
+--- !u!1 &474636232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 957017029898606229, guid: fd5a46b07a471df4c9d30bf6a26c4985, type: 3}
+  m_PrefabInstance: {fileID: 474636231}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &487296633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3424,6 +3442,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTurtle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 957017029898606235, guid: fd5a46b07a471df4c9d30bf6a26c4985, type: 3}
+      propertyPath: IsMission
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 957017029898606236, guid: fd5a46b07a471df4c9d30bf6a26c4985, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3470,6 +3492,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd5a46b07a471df4c9d30bf6a26c4985, type: 3}
+--- !u!1 &684016152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 957017029898606229, guid: fd5a46b07a471df4c9d30bf6a26c4985, type: 3}
+  m_PrefabInstance: {fileID: 684016151}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &687586662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9230,6 +9257,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySlime (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 957017029898606235, guid: 7162ea666a087054f90ffda8d09b4c84, type: 3}
+      propertyPath: IsMission
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 957017029898606236, guid: 7162ea666a087054f90ffda8d09b4c84, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -9276,6 +9307,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7162ea666a087054f90ffda8d09b4c84, type: 3}
+--- !u!1 &1689475523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 957017029898606229, guid: 7162ea666a087054f90ffda8d09b4c84, type: 3}
+  m_PrefabInstance: {fileID: 1689475522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1706225409
 GameObject:
   m_ObjectHideFlags: 0
@@ -9488,6 +9524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySlime (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 957017029898606235, guid: 7162ea666a087054f90ffda8d09b4c84, type: 3}
+      propertyPath: IsMission
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 957017029898606236, guid: 7162ea666a087054f90ffda8d09b4c84, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -9534,6 +9574,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7162ea666a087054f90ffda8d09b4c84, type: 3}
+--- !u!1 &1723827376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 957017029898606229, guid: 7162ea666a087054f90ffda8d09b4c84, type: 3}
+  m_PrefabInstance: {fileID: 1723827375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1759874077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10629,6 +10674,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySlime
       objectReference: {fileID: 0}
+    - target: {fileID: 957017029898606235, guid: 7162ea666a087054f90ffda8d09b4c84, type: 3}
+      propertyPath: IsMission
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 957017029898606236, guid: 7162ea666a087054f90ffda8d09b4c84, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -10675,6 +10724,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7162ea666a087054f90ffda8d09b4c84, type: 3}
+--- !u!1 &1908832757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 957017029898606229, guid: 7162ea666a087054f90ffda8d09b4c84, type: 3}
+  m_PrefabInstance: {fileID: 1908832756}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1913068630
 GameObject:
   m_ObjectHideFlags: 0
@@ -10736,7 +10790,13 @@ MonoBehaviour:
   MissionList:
   - TargetValue: 6
     MissionDescription: Wipe Out All Enemies
-    ObjectActivated: {fileID: 0}
+    ObjectActivated:
+    - {fileID: 1689475523}
+    - {fileID: 1723827376}
+    - {fileID: 684016152}
+    - {fileID: 1908832757}
+    - {fileID: 154236902}
+    - {fileID: 474636232}
   MissionUnit: 0
   MissionValue: 0
   TransitionObject: {fileID: 3105153943008046950, guid: 38196e54a6b551a42b501e4288faac9f, type: 3}
